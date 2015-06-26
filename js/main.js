@@ -59,7 +59,7 @@ $(document).ready(function(){
 
   var dollarAmt, convBikes,goal, numBikes, targetBikes, degreeBikes, finalDegree, trackerTitle;
 
-  dollarAmt=410000;
+  dollarAmt=100000;
   targetBikes = 3000;
   convBikes = Math.floor(dollarAmt/147);
   goal= convBikes/3000;
@@ -82,7 +82,7 @@ var figureWidth=parseInt($('.progress figure img.wheel').width(),10);
 var figureParent = parseInt($('.progress').parent().width(),10);
 ///used for scaling wheel and images 
 var diamnoprogress = (figureWidth/figureParent *200)+'%';
-var radiusprogress = -5+figureWidth/2;
+var radiusprogress = figureWidth/2;
 var svgWidth = $('#container').css('width', diamnoprogress);
 
 
@@ -242,7 +242,6 @@ $('#mobileform').change(function(){
 
   sizeUpSlider(); // fire on load
 
-
   //////////////////////////////////////////size/diameter of circleprogress bar scaling 
     
   var checkWindowWidth = function() {
@@ -318,20 +317,72 @@ $( window ).resize(function(){ // fire on resize
 ////////////////////////////changing tracker bubble 
   trackerTitle= $('.tracker').html(convBikes + ' Bikes');
 
+  
+  // var ieRotate = new function () {
+  //     var me = this,
+  //         $tracker,
+  //         initialPosition,
+  //         radiustracker = diamnoprogress/2;
+      
+  //     /* 
+  //      * Initialize the animation here.
+  //      */
+  //     me.init = function () {
+          
+  //         // Caches the jQuery object for performance reasons.
+  //         $tracker = $('.tracker');
+          
+  //         // Stores the initial position of Saturn.  Used later when calculating
+  //         // the orbit animation.
+  //         initialPosition = {
+  //             x: parseInt($tracker.css('left'),10),
+  //             y: parseInt($tracker.css('top'),10)
+  //         };
+          
+  //         // starts the animation.
+  //         rotateOnce();
+  //     };
+      
+  //     function rotateOnce() {
+          
+  //         $tracker.css('text-indent', 0);
+  //         $tracker.animate(
+  //             {
+  //                 // 'text-indent': 2*Math.PI
+  //                 'text-indent': finalDegree*Math.PI/180
+  //             }, {
+  //                 step: function (now) {
+  //                   var finalLeft= initialPosition.x +radiusprogress * Math.sin(now);
+  //                   // var trialLeft = finalLeft/figureParent * 100+'%';
+  //                   // console.log (finalLeft + ' finalLeft'+ trialLeft+ ' trialLeft');
+
+  //                   var finalTop=initialPosition.y - radiusprogress * Math.cos(now);
+  //                   // var trialTop = finalTop/figureParent * 100+'%';
+  //                   // console.log (finalTop + ' finaltop' + trialTop +' trialTop');
+
+  //                     $tracker.css('left', finalLeft)
+  //                            .css('top', finalTop);
+  //                 },
+                  
+  //                 duration: 2000,
+  //                 easing: 'linear',
+  //                 complete: 1
+  //             }
+  //         );
+  //     }
+  // }
 //////////////////////////////changing wheel images 
 
   $('img.wheel1').hide();
 
   function wheelPeople(){
   
-
     $('img.wheel1:nth-of-type(1)').delay(1000).fadeIn(1000);
     $('img.wheel1:nth-of-type(2)').delay(3000).fadeIn(1000);
     $('img.wheel1:nth-of-type(3)').delay(5000).fadeIn(1000);
     $('img.wheel1:nth-of-type(4)').delay(7000).fadeIn(1000);
     $('img.wheel1:nth-of-type(5)').delay(9000).fadeIn(1000);
     $('img.wheel1:nth-of-type(6)').delay(11000).fadeIn(1000);
-
 
     window.setTimeout(function(){$('img.wheel1').fadeOut(500);}, 16000);
     window.setTimeout(function(){$('.tracker').html(convBikes + ' Lives').css('background-color','#38a368');}, 1000);
@@ -346,6 +397,7 @@ $( window ).resize(function(){ // fire on resize
       trailWidth: 5,
       duration: 2000
       });
+    // ieRotate.init();
      circle.animate(goal, function() {
       circle.animate(goal);
       var timeoutID = window.setTimeout(wheelPeople, 1000);

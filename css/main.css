@@ -518,13 +518,18 @@ section.stats{
 
 .tracker{
 	color: #e5e5e5;
-	font-size: 0.65em;
+	font-size: 0.5em;
 	text-align: center;
 	/*background-color: #38a368; */
 	background-color: #000;
 	position: absolute;
 	top:-10%;
 	left:-10%;
+	/*top:42%;
+	left:40%;*/
+/*	-webkit-transform: translate(50%, 50%);
+	-moz-transform: translate(50%, 50%);
+	transform: translate(50%, 50%);*/
 	width: 100px;
 	height:100px;
 	z-index: 201;
@@ -1312,8 +1317,10 @@ footer button{
 		height: 90px;
 		top:-15%;
 		left:-15%;
-		font-size: 0.75em; 
-		line-height: 1.2em;
+		/*top:20%;
+		left:50%;*/
+		font-size: 0.5em; 
+		line-height: 60px;
 		padding-top: 4%;
 	}
 	/****************************donate****************************/
